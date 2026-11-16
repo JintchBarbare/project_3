@@ -1,0 +1,44 @@
+<div class="profile-container">
+  <div class="profile-card">
+    <div class="profile-header">
+      <i class="fas fa-user-circle profile-icon"></i>
+      <h1>მომხმარებელი</h1>
+      <p>{{ userEmail }}</p>
+    </div>
+
+    <div class="profile-info-section">
+      <div class="info-item">
+        <i class="fas fa-phone"></i>
+        <span>ტელეფონი: <strong>{{ userPhone }}</strong></span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>მისამართი: <strong>{{ userAddress }}</strong></span>
+      </div>
+    </div>
+
+    <div class="orders-section">
+      <h3>შეკვეთების ისტორია</h3>
+      
+      <div class="orders-list" *ngIf="orders.length > 0; else noOrders">
+        <div class="order-card" *ngFor="let order of orders">
+          <div class="order-header">
+            <span>შეკვეთა #{{ order.id }}</span>
+            <span class="order-date">{{ order.date }}</span>
+          </div>
+          <p class="order-items">{{ order.items }}</p>
+          <div class="order-footer">
+            <span class="order-total">სულ: {{ order.total }} ₾</span>
+            <span class="order-status">{{ order.status }}</span>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #noOrders>
+        <p class="no-orders">შეკვეთების ისტორია ცარიელია</p>
+      </ng-template>
+    </div>
+
+    <button (click)="logout()" class="btn-logout">გასვლა</button>
+  </div>
+</div>

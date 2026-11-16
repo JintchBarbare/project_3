@@ -1,0 +1,56 @@
+:root {
+  --bg-dark: #121212;
+  --bg-card: #1e1e1e;
+  --accent-gold: #c59d5f;
+  --accent-gold-hover: #b0894c;
+  --text-light: #f5f5f5;
+  --text-muted: #a0a0a0;
+  --border-color: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary, .btn-add, .btn-checkout, .btn-submit, .btn-apply {
+  background-color: var(--accent-gold);
+  color: #121212;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 4px;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary:hover, .btn-add:hover, .btn-checkout:hover, .btn-submit:hover, .btn-apply:hover {
+  background-color: var(--accent-gold-hover);
+  transform: translateY(-2px);
+}

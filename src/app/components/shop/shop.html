@@ -1,0 +1,45 @@
+<div class="shop-container">
+  <div class="shop-header">
+    <h1>რესტორნის მენიუ</h1>
+    <p>აირჩიეთ თქვენი საყვარელი კერძები</p>
+  </div>
+
+  <div class="categories-bar">
+    <button 
+      [class.active]="selectedCategoryId === 0" 
+      (click)="filterByCategory(0)">
+      ყველა
+    </button>
+    <button 
+      *ngFor="let cat of categories" 
+      [class.active]="selectedCategoryId === cat.id" 
+      (click)="filterByCategory(cat.id)">
+      {{ cat.name }}
+    </button>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <img [src]="product.image" [alt]="product.name" class="product-img">
+      <div class="product-info">
+        <h3>{{ product.name }}</h3>
+        
+        <div class="product-specs">
+          <span><i class="fas fa-pepper-hot"></i> სიცხარე: {{ product.spiciness }}/4</span>
+          <span><i class="fas fa-seedling"></i> {{ product.vegeterian ? 'ვეგეტარიანული' : 'არავეგეტარიანული' }}</span>
+          <span><i class="fas fa-allergies"></i> თხილეული: {{ product.nuts ? 'კი' : 'არა' }}</span>
+        </div>
+
+        <div class="card-footer">
+          <p class="price">{{ product.price }} ₾</p>
+          <button (click)="addToCart(product)" class="btn-add">კალათაში</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-notification" *ngIf="toastMessage()">
+  <i class="fas fa-check-circle"></i>
+  <span>{{ toastMessage() }}</span>
+</div>

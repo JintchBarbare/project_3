@@ -1,0 +1,33 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>{{ isLoginMode ? 'შესვლა' : 'რეგისტრაცია' }}</h2>
+    
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group" *ngIf="!isLoginMode">
+        <label>სახელი და გვარი</label>
+        <input type="text" [(ngModel)]="fullName" name="fullName" required>
+      </div>
+
+      <div class="form-group">
+        <label>ელ-ფოსტა</label>
+        <input type="email" [(ngModel)]="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label>პაროლი</label>
+        <input type="password" [(ngModel)]="password" name="password" required>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        {{ isLoginMode ? 'შესვლა' : 'რეგისტრაცია' }}
+      </button>
+    </form>
+
+    <p class="toggle-text">
+      {{ isLoginMode ? 'არ გაქვთ ანგარიში?' : 'უკვე გაქვთ ანგარიში?' }}
+      <button type="button" (click)="toggleMode()" class="btn-link">
+        {{ isLoginMode ? 'დარეგისტრირდით' : 'შედით სისტემაში' }}
+      </button>
+    </p>
+  </div>
+</div>

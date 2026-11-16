@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="logo">
+    <a routerLink="/">
+      <i class="fa-solid fa-utensils logo-icon"></i> Giacosa
+    </a>
+  </div>
+
+  <ul class="nav-links">
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">მთავარი</a></li>
+    <li><a routerLink="/shop" routerLinkActive="active">მენიუ</a></li>
+    <li><a routerLink="/about" routerLinkActive="active">ჩვენ შესახებ</a></li>
+    <li><a routerLink="/careers" routerLinkActive="active">კარიერა</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a routerLink="/cart" class="cart-icon-btn">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="cart-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+    </a>
+    <a routerLink="/auth" class="auth-btn">
+      <i class="fa-solid fa-user"></i>
+    </a>
+  </div>
+</nav>

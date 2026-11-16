@@ -1,0 +1,21 @@
+<div class="details-container" *ngIf="product">
+  <a routerLink="/shop" class="btn-back">← მენიუში დაბრუნება</a>
+  
+  <div class="details-card">
+    <img [src]="product.image" [alt]="product.name" class="details-img">
+    
+    <div class="details-info">
+      <span class="category-badge">{{ product.category }}</span>
+      <h1>{{ product.name }}</h1>
+      <p class="price">{{ product.price }} ₾</p>
+      <p class="description">{{ product.description }}</p>
+      
+      <div class="ingredients" *ngIf="product.ingredients">
+        <h3>ინგრედიენტები:</h3>
+        <p>{{ product.ingredients }}</p>
+      </div>
+
+      <button (click)="addToCart()" class="btn-add">კალათაში დამატება</button>
+    </div>
+  </div>
+</div>
